@@ -6,10 +6,21 @@ const csvData = parse(file, {
         complete: (result) => result.data
     }
 );
-const csv = csvData.data.map((t) => {
+export const csv = csvData.data.map((t) => {
     return t.slice(0, 6)
 }).map((t: string[]) => {
     return {...t}
 })
 
-console.dir(csv);
+let propNames =csv[0];
+let resultArray = [];
+for (let i=1;i<csv.length;i++) {
+    let newItem = {};
+    let itemFromArray = csv[i];
+    Object.keys(propNames).forEach(key => {
+        newItem[propNames[key]] = itemFromArray[key];
+    });
+    resultArray.push(newItem);
+}
+
+console.dir(resultArray)
