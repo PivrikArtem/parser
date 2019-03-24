@@ -21,6 +21,9 @@ CREATE TABLE users(
 
 3) How to see resalts? :
    sqlite3.exe:
+   
    SELECT * FROM users;
+
    .mode column
+
    SELECT * FROM users;
