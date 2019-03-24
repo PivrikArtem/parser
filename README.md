@@ -1,4 +1,5 @@
 1) sqlite3.exe  :(2 commands)
+
  .open users.db 
 
 CREATE TABLE users(
