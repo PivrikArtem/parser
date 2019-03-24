@@ -2,29 +2,24 @@ import {parse} from 'papaparse';
 import {readFileSync} from 'fs';
 
 class CsvData {
-    file: any;
-    resultArray: any;
+    file: string;
+    resultArray: Array<{}>;
     utf: string;
 
     constructor(file, utf) {
-        this.utf=utf;
-        this.file = readFileSync(file,this.utf);
+        this.utf = utf;
+        this.file = readFileSync(file, this.utf);
         this.resultArray = null;
     }
 
-    private _parseData(): any {
-        const csvData = parse(this.file, {
-                complete: (result) => result.data
-            }
-        );
-        return csvData;
+    private _parseData() {
+        return parse(this.file, (result) => result.data);
     }
 
-    getCsvData(): any {
-
+    getCsvData(): Array<{}> {
         const csv = this._parseData().data.map((t) => {
             return t.slice(0, 6)
-        }).map((t: string[]) => {
+        }).map((t) => {
             return {...t}
         });
 
@@ -43,6 +38,6 @@ class CsvData {
 }
 
 const scv = new CsvData('./Users.csv', 'utf8');
-export const data:Array<{}>= scv.getCsvData();
+export const data: Array<{}> = scv.getCsvData();
 
 console.dir(data);
