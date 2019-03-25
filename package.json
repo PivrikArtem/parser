@@ -1,0 +1,26 @@
+{
+  "name": "parser",
+  "version": "1.0.0",
+  "description": "",
+  "main": "parser.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PivrikArtem/parser.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PivrikArtem/parser/issues"
+  },
+  "homepage": "https://github.com/PivrikArtem/parser#readme",
+  "dependencies": {
+    "@types/node": "^11.11.2",
+    "moment": "^2.24.0",
+    "papaparse": "^4.6.3",
+    "sqlite3": "^4.0.6"
+  }
+}
