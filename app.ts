@@ -1,7 +1,7 @@
 import {data} from "./parser";
 import {config} from "./config";
 
-class DataBase {
+export class DataBase {
     fs: any;
     sqlite3: any;
     moment: any;
@@ -19,7 +19,7 @@ class DataBase {
         });
     }
 
-    validationOfData(csv: Array<{}>, config: object): object {
+    validationOfData(csv: Array<{}>, config: object): Array<{}> {
         for (let i = 0; i < csv.length; i++) {
             for (let k in csv[i]) {
                 if (config[k]) {
@@ -50,8 +50,8 @@ class DataBase {
             }
         }
         console.log('\n');
-
         return csv;
+
     }
 
     addDataToBase(csvData: Array<{}>):void {

@@ -2,25 +2,52 @@
   "name": "parser",
   "version": "1.0.0",
   "description": "",
-  "main": "parser.ts",
+  "main": "app.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "nyc mocha -r ts-node/register test/**/*.spec.ts",
+    "tsc": "tsc"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/PivrikArtem/parser.git"
   },
   "keywords": [],
-  "author": "",
+  "nyc": {
+    "include": [
+      "*.ts"
+    ],
+    "extension": [
+      ".ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ],
+    "reporter": [
+      "text-summary",
+      "html"
+    ],
+    "all": true
+  },
+  "author": "Pivrik_Artem",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/PivrikArtem/parser/issues"
+    "url": "https://github.com/PivrikArtem/parser"
   },
   "homepage": "https://github.com/PivrikArtem/parser#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.0.2",
+    "nyc": "^13.3.0",
+    "source-map-support": "^0.5.10",
+    "ts-node": "^8.0.3",
+    "typescript": "^3.3.3333"
+  },
   "dependencies": {
     "@types/node": "^11.11.2",
     "moment": "^2.24.0",
     "papaparse": "^4.6.3",
-    "sqlite3": "^4.0.6"
+    "sqlite3": "^4.0.6",
+    "@types/chai": "^4.1.7",
+    "@types/mocha": "^5.2.6"
   }
 }

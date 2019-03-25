@@ -1,7 +1,7 @@
 import {parse} from 'papaparse';
 import {readFileSync} from 'fs';
 
-class CsvData {
+ export class CsvData {
     file: string;
     resultArray: Array<{}>;
     utf: string;
@@ -13,7 +13,7 @@ class CsvData {
     }
 
     private _parseData() {
-        return parse(this.file, (result) => result.data);
+        return parse(this.file)
     }
 
     getCsvData(): Array<{}> {
