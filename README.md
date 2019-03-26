@@ -26,8 +26,7 @@ CREATE TABLE users(
 
    .mode column
 
-   SELECT * FROM users;
-
+   
 4) For exit
  
   .quit

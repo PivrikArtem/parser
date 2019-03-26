@@ -1,22 +1,16 @@
 import {data} from "./parser";
 import {config} from "./config";
+import {db} from "./db";
 
 export class DataBase {
     fs: any;
-    sqlite3: any;
     moment: any;
     db: any;
 
-    constructor() {
+    constructor(db) {
         this.fs = require('fs');
-        this.sqlite3 = require('sqlite3').verbose();
         this.moment = require('moment');
-        this.db = new this.sqlite3.Database('./db/users.db', this.sqlite3.OPEN_READWRITE, (err) => {
-            if (err) {
-                return console.error(err.message);
-            }
-            console.log('Connected to the users database.');
-        });
+        this.db = db;
     }
 
     validationOfData(csv: Array<{}>, config: object): Array<{}> {
@@ -91,7 +85,7 @@ export class DataBase {
     }
 }
 
-let base = new DataBase();
+let base = new DataBase(db);
 base.validationOfData(data, config);
 base.addDataToBase(data);
 
